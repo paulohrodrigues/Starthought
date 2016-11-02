@@ -1,0 +1,112 @@
+
+    <!--Start Header-->
+    <div id="screensaver">
+        <canvas id="canvas"></canvas>
+        <i class="fa fa-lock" id="screen_unlock"></i>
+    </div>
+    <div id="modalbox">
+        <div class="devoops-modal">
+            <div class="devoops-modal-header">
+                <div class="modal-header-name">
+                    <span>Tabela Basica</span>
+                </div>
+                <div class="box-icons">
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="devoops-modal-inner">
+            </div>
+            <div class="devoops-modal-bottom">
+            </div>
+        </div>
+    </div>
+
+    <header class="navbar">
+        <div class="container-fluid expanded-panel">
+            <div class="row" >
+                <div id="logo" class="col-xs-12 col-sm-2">
+                    <a href="/">Starthought</a>
+                </div>
+                <div id="top-panel" class="col-xs-12 col-sm-10" style="background-color:#F1BB04;">
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-4">
+                            <a href="#" class="show-sidebar">
+                                <i class="fa fa-bars" style="color:#222;"></i>
+                            </a>
+                            <div id="search">
+                                <input type="text" placeholder="Pesquisar"/ >
+                                <i class="fa fa-search" style="color:#F1BB04;"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-8 top-panel-right">
+                            <ul class="nav navbar-nav pull-right panel-menu">
+                                <li class="hidden-xs">
+                                    <a href="index.html" class="modal-link">
+                                        <i class="fa fa-bell" style="color:#222;"></i>
+                                        <span class="badge" style="background-color:#FA3E3E;">7</span>
+                                    </a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <a href="ajax/page_messages.html" class="ajax-link">
+                                        <i class="fa fa-envelope" style="color:#222;"></i>
+                                        <span class="badge" style="background-color:#FA3E3E;">7</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle account" data-toggle="dropdown">
+                                        <div class="avatar">
+                                            <img src="{{base_url()}}/assets/rede/img/user/{{dadosDoUsuario.img}}" class="img-rounded" alt="avatar" />
+                                        </div>
+                                        <i class="fa fa-angle-down pull-right"></i>
+                                        <div class="user-mini pull-right">
+                                            <span class="welcome">Bem vindo(a),</span>
+                                            <span>{{dadosDoUsuario.nome}}</span>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-user" style="color:#F1BB04;"></i>
+                                                <span class="hidden-sm text">Perfil</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="ajax/page_messages.html" class="ajax-link">
+                                                <i class="fa fa-envelope" style="color:#F1BB04;"></i>
+                                                <span class="hidden-sm text">Mensagens</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/configuracao">
+                                                <i class="fa fa-cog" style="color:#F1BB04;"></i>
+                                                <span class="hidden-sm text">Configurações</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/sair">
+                                                <i class="fa fa-power-off" style="color:#F1BB04;"></i>
+                                                <span class="hidden-sm text">Sair</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+

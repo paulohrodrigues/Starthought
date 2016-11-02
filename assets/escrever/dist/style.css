@@ -1,0 +1,21 @@
+body{
+	background-color:#F5F5F5;
+}
+.logo{
+	color: #F1BB04;
+  	font-family: 'Righteous', cursive;
+  	font-size: 40px;
+  	text-decoration:none; 
+}
+a:hover{
+	text-decoration:none; 
+	color: #F1BB04;
+}
+a:link{
+	text-decoration:none; 	
+	color: #F1BB04;
+	
+}
+hr{
+	border-color:#F1BB04; 
+}

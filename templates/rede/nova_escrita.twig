@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+  <title>summernote</title>
+  <!-- include jquery -->
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> 
+
+  <!-- include libraries BS3 -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" />
+  <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+
+  <!-- include summernote -->
+  <link rel="stylesheet" href="{{base_url()}}/assets/escrever/dist/summernote.css">
+  <link rel="stylesheet" href="{{base_url()}}/assets/escrever/dist/style.css">
+  <script type="text/javascript" src="{{base_url()}}/assets/escrever/dist/summernote.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+
+
+  <script type="text/javascript">
+
+  onload=function(){
+    document.getElementById("sel1").value="{{dados.tipo}}";
+    document.getElementById("sel2").value="{{dados.privacidade}}";
+  }
+
+
+    $(function() {
+      $('.summernote').summernote({
+        height: 200
+      });
+    });
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <a href="/" class="logo">Starthought</a>
+  <hr>
+  <form action="/cadastraEscrito" method="post">
+   
+    {% if dados.id %}
+      <input type="hidden" name="id" value="{{dados.id}}">
+    {% endif %}
+    {{htmlHidden.html | raw}}
+   
+    <div style="text-align:right; margin:10px;">
+      <button type="submit" class="btn btn-warning">Publicar</button>
+    </div>
+    <div class="form-group">
+      <br>
+      <div class="form-group">
+      <label for="text">Titulo:</label>
+      <input type="text" class="form-control" id="titulo" placeholder="Titulo" name="titulo" value="{{dados.titulo}}">
+      </div>
+
+
+      <div class="form-group">
+      <label for="sel1">Genero Textual:</label>
+        <select class="form-control" id="sel1" name="tipo">
+          <option value="livro">Livro</option>
+          <option value="poema">Poema</option>
+          <option value="reflexao">Reflexão</option>
+          <option value="poesia">Poesia</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+      <label for="sel1">Privacidade:</label>
+        <select class="form-control" id="sel2" name="privacidade">
+          <option value="publico">Publico</option>
+          <option value="anonimo">Anônimo</option>
+          <option value="eu">Somente eu</option>
+        </select>
+      </div>
+
+
+    </div>
+    <div class="form-group">
+      <textarea name="texto" class="summernote" id="contents" title="Contents">{{dados.texto}}</textarea>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
