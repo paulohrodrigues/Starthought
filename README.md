@@ -19,13 +19,13 @@ Rede Social desenvolvida para usuários serem capazes de criar e editar livros d
 -instalar dependências: 
 	<code>php composer.phar install</code> Obs.: Essa opção vai depender de como está instalado o composer em sua maquina/servidor</br>
 -Rodar servidor php no host local: 
-	<code>php -S localhost:80. </code> Obs.: Você pode modificar a porta a sua vontade.</br>
+	<code>php -S localhost:80. </code> Obs.: Pode-se alterar a porta.</br>
 
 
 <p><b>Ferramentas ultilizadas:</b></p>
--Slim 
--Twig
--Boostrap
+-Slim<br> 
+-Twig<br>
+-Boostrap<br>
 
 ##Créditos
 <ul>
