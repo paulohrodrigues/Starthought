@@ -22,7 +22,7 @@ Rede Social desenvolvida para usuários serem capazes de criar e editar livros d
 	<code>php -S localhost:80. </code> Obs.: Pode-se alterar a porta.</br>
 
 
-<p><b>Ferramentas ultilizadas:</b></p>
+<p><b>Ferramentas utilizadas:</b></p>
 -Slim<br> 
 -Twig<br>
 -Boostrap<br>
