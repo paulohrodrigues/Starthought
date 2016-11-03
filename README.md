@@ -14,11 +14,11 @@ Rede Social desenvolvida para usuários serem capazes de criar e editar livros d
 </pre>
 -Importar o banco
 	<code>Banco/rede.sql</code></br>
--Configurar o acesso ao banco 
+-Configurar o acesso ao banco em 
 	<code>src/configs/DB.php</code></br>
--Instalar dependências 
+-Instalar dependências:
 	<code>php composer.phar install</code> Obs.: Essa opção depende como está instalado o composer na maquina/servidor</br>
--Para executar em servidor php no host local 
+-Para executar em servidor php no host local: 
 	<code>php -S localhost:80. </code> Obs.: Pode-se alterar a porta.</br>
 
 
