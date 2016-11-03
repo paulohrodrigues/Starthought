@@ -12,13 +12,13 @@ Rede Social desenvolvida para usuários serem capazes de criar e editar livros d
 <code> $ git clone https://github.com/paulohrodriguesaifal/Starthought.git 
 </code>
 </pre>
--Importar o banco 
+-Importar o banco
 	<code>Banco/rede.sql</code></br>
--configurar o acesso ao banco no arquivo 
+-Configurar o acesso ao banco 
 	<code>src/configs/DB.php</code></br>
--instalar dependências: 
+-Instalar dependências 
 	<code>php composer.phar install</code> Obs.: Essa opção vai depender de como está instalado o composer em sua maquina/servidor</br>
--Rodar servidor php no host local: 
+-Para executar em servidor php no host local 
 	<code>php -S localhost:80. </code> Obs.: Pode-se alterar a porta.</br>
 
 
