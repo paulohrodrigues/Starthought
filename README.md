@@ -35,4 +35,4 @@ Rede Social desenvolvida para usuários serem capazes de criar e editar livros d
 </ul>
 
 ##License
-<strong>The "Starthought?" is licensed under the GNU general public license. See <a href="https://github.com/paulohrodriguesaifal/Starthought/blob/master/LICENSE">License</a> File for more information.</strong>
+<strong>The "Starthought" is licensed under the GNU general public license. See <a href="https://github.com/paulohrodriguesaifal/Starthought/blob/master/LICENSE">License</a> File for more information.</strong>
