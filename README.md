@@ -17,7 +17,7 @@ Rede Social desenvolvida para usuários serem capazes de criar e editar livros d
 -Configurar o acesso ao banco 
 	<code>src/configs/DB.php</code></br>
 -Instalar dependências 
-	<code>php composer.phar install</code> Obs.: Essa opção vai depender de como está instalado o composer em sua maquina/servidor</br>
+	<code>php composer.phar install</code> Obs.: Essa opção depende como está instalado o composer na maquina/servidor</br>
 -Para executar em servidor php no host local 
 	<code>php -S localhost:80. </code> Obs.: Pode-se alterar a porta.</br>
 
