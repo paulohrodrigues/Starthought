@@ -13,18 +13,39 @@ class EscreverContoller
 		
 
 		$timeLineArray=array();
+		$favoritoArray=array();
+
+		$login=$_SESSION["dados_login"]["id"];
+		$fotouserlogado=$_SESSION["dados_login"]["img"];
+
 		$login=$_SESSION["dados_login"]["id"];
 
 		$busca=DB::findAll("escrito","id_user=? ORDER BY id DESC",array($_SESSION["dados_login"]["id"]));
 
 		$buscaCurtida=DB::findAll("curtidas","id_usuario=?",array($_SESSION["dados_login"]["id"]));
+		$buscaFavoritos=DB::findAll("favoritos","id_usuario=?",array($_SESSION["dados_login"]["id"]));
 	
 		
 		foreach ($busca as $value) {
 			$curti =  0;
+			$favorito =  0;
+
 			foreach ($buscaCurtida as $valor) {
 				if($value->id==$valor->id_publicacao){
 					$curti = 1;
+				}	
+			}
+
+			foreach ($buscaFavoritos as $valor) {
+				if($value->id==$valor->id_publicacao){
+					$favorito = 1;
+					array_push($favoritoArray,
+						array(
+							"id"=>				$valor->id,
+							"id_publicacao"=>	$valor->id_publicacao,
+							"id_user"=>			$valor->id_user,							
+							"titulo"=> 			$value->titulo
+					));
 				}	
 			}
 			array_push($timeLineArray,
@@ -34,17 +55,20 @@ class EscreverContoller
 					"data"=>			$value->data,
 					"conteudo"=> 		$value->texto.(($value->id_user==$_SESSION["dados_login"]["id"])?"</br><a href='/escrita/new/".$value->id."'> Editar</a>":""),
 					"qtdLikes"=> 		$value->like,
-					"qtdComentarios"=>	0,
+					"qtdComentarios"=>	$value->comentarios, 
 					"img"=>DB::findOne("usuarios", "id=?",array($value->id_user))->foto,
 					"privacidade"=> ($value->privacidade=="eu")?"Somente eu":$value->privacidade,
 					"tipo"=> $value->tipo, 
 					"id_login"=>$login,
-					"statusCurtida"=>$curti
+					"id_user"=>$value->id_user,
+					"statusCurtida"=>$curti, 
+					"statusFavoritos"=>$favorito, 
+					"foto"=>$fotouserlogado
 				)
 			);
 		}
 
-		return $this->app->view->render($response, 'minhas_escritas.twig',array("timeline"=>$timeLineArray));
+		return $this->app->view->render($response, 'minhas_escritas.twig',array("timeline"=>$timeLineArray, 'favoritos'=>$favoritoArray));
 	}
 
 	public function new_index($request, $response,$args){
