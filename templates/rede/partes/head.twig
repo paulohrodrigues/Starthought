@@ -36,8 +36,10 @@
                                 <i class="fa fa-bars" style="color:#222;"></i>
                             </a>
                             <div id="search">
-                                <input type="text" placeholder="Pesquisar"/ >
-                                <i class="fa fa-search" style="color:#F1BB04;"></i>
+                                <input type="text" id="busca" placeholder="Pesquisar" onkeydown="busca()" />
+                                <i class="fa fa-search" style="color:#F1BB04;" ></i><br>
+                                <i class="" id="pesquisa"></i>
+                                 
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-8 top-panel-right">
@@ -100,7 +102,7 @@
         </div>
     </header>
 
-
+    <script src="{{base_url()}}/assets/rede/js/busca.js" type="text/javascript"></script>
 
 
 

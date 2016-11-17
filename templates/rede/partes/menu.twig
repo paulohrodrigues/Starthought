@@ -17,8 +17,12 @@
             <span class="hidden-xs">Leituras Favoritas</span>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="/teste" style="color:#F1BB04;">O Principe</a></li>
-            <li><a href="/teste" style="color:#F1BB04;">Amor Lindo Amor</a></li>
+
+            {% for item in favoritos %}
+               <li><a href="/favoritos/{{item.id}}" style="color:#F1BB04;"> {{item.titulo}} </a></li>
+            {% endfor %}
+            <!--<li><a href="/favoritos[/{{item.id}}]" style="color:#F1BB04;">O Principe</a></li>
+            <li><a href="/teste" style="color:#F1BB04;">Amor Lindo Amor</a></li>-->
             <li>
                 <a href="/teste" style="color:#F1BB04;">
                     <i class="fa fa-plus-circle" aria-hidden="true" style="color:#F1BB04;"></i>
@@ -44,3 +48,4 @@
         </ul>
     </li>
 </ul>
+<script src="{{base_url()}}/assets/rede/js/favoritos.js" type="text/javascript"></script>

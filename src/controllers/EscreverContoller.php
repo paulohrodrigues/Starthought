@@ -13,10 +13,20 @@ class EscreverContoller
 		
 
 		$timeLineArray=array();
+		$login=$_SESSION["dados_login"]["id"];
 
 		$busca=DB::findAll("escrito","id_user=? ORDER BY id DESC",array($_SESSION["dados_login"]["id"]));
 
+		$buscaCurtida=DB::findAll("curtidas","id_usuario=?",array($_SESSION["dados_login"]["id"]));
+	
+		
 		foreach ($busca as $value) {
+			$curti =  0;
+			foreach ($buscaCurtida as $valor) {
+				if($value->id==$valor->id_publicacao){
+					$curti = 1;
+				}	
+			}
 			array_push($timeLineArray,
 				array(
 					"id"=>				$value->id,
@@ -27,7 +37,9 @@ class EscreverContoller
 					"qtdComentarios"=>	0,
 					"img"=>DB::findOne("usuarios", "id=?",array($value->id_user))->foto,
 					"privacidade"=> ($value->privacidade=="eu")?"Somente eu":$value->privacidade,
-					"tipo"=> $value->tipo
+					"tipo"=> $value->tipo, 
+					"id_login"=>$login,
+					"statusCurtida"=>$curti
 				)
 			);
 		}
@@ -76,6 +88,28 @@ class EscreverContoller
 	public function delEscrito($request, $response,$args){
 		if($_SESSION["dados_login"]['id']== DB::findOne("escrito","id=?",array($args["id"]))["id_user"]){
 			DB::exec("DELETE FROM escrito WHERE id=?",array($args["id"]));
+			
+			$busca=DB::findAll("comentarios","id_escrito=?",array($args["id"]));
+			$curtidas=DB::findAll("curtidas","id_publicacao=?",array($args["id"]));
+			$favoritos=DB::findAll("favoritos","id_publicacao=?",array($args["id"]));
+
+			foreach ($busca as $value) {
+				if($value->id_escrito==$args["id"]){
+					DB::exec("DELETE FROM comentarios WHERE id=?",array($value->id));
+				}
+			}
+			foreach ($curtidas as $value) {
+				if($value->id_publicacao==$args["id"]){
+					DB::exec("DELETE FROM curtidas WHERE id=?",array($value->id));
+				}
+			}
+			foreach ($favoritos as $value) {
+				if($value->id_publicacao==$args["id"]){
+					DB::exec("DELETE FROM favoritos WHERE id=?",array($value->id));
+				}
+			}
+
+
 		}
 		return $response->withRedirect($this->app->router->pathFor("index"));
 	}
