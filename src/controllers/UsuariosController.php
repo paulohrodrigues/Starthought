@@ -102,13 +102,12 @@ class UsuariosController extends Usuario
 	public function verificaLogin($request, $response){
 
 	
-		$fb = new \Facebook\Facebook([
-			'app_id' => '1007052772726200',
-			'app_secret' => 'd094beff21dd43c0e9feddc78b3468b9',
+	$fb = new \Facebook\Facebook([
+			'app_id' => 'xxxxxx',
+			'app_secret' => 'xxxxx',
 			'default_graph_version' => 'v2.7',
 			]);
-		
-		$helper = $fb->getRedirectLoginHelper();
+			$helper = $fb->getRedirectLoginHelper();
 			
 
 		try {
