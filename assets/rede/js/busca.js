@@ -14,7 +14,9 @@ function busca(){
 			}
 
 			$('#pesquisa').html(usuario);	
-
+			$("#pesquisa").mouseleave(function(){
+        		$('#pesquisa').html(" ");	
+    		});
 		});
 	
 	}else {
@@ -22,8 +24,28 @@ function busca(){
 	}
 }
 
-$(document).click(function(event){
-	alert("ok");
 
-});
+function buscaMinhasEscritas(){
+	var busca = $("#buscaE").val();
 
+	//alert(busca);
+	if(busca != ""){
+		$.get("/buscaMinhasEscritas",{"pesquisa":busca},function(retorno){
+			var escritos=JSON.parse(retorno);
+			escrito=" ";
+			//alert("entrou");
+
+			$('#pesquisaE').val("");
+
+			for (value in escritos) {
+				escrito += '<a href="#section1" class="meustextos">' + escritos[value].titulo  +"<br></a>";
+			}
+
+			$('#pesquisaE').html(escrito);	
+
+		});
+	}
+	// }else {
+	// 	$('#pesquisaE').html(" ");	
+	// }
+}

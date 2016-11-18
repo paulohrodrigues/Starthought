@@ -68,24 +68,19 @@
 							</p>
 						</div>
 						<div class="row">
-						<div class="col-md-6">
-							<div class="timeline-body" id="corpo-{{item.id}}">
-								<p style="text-align:justify; font-size:14px; line-height:1.5;">
-								{{item.conteudo | raw}}
-								</p>
-							</div>
+							<div class="col-md-6">
+								<div class="timeline-body" id="corpo-{{item.id}}">
+									<p style="text-align:justify; font-size:14px; line-height:1.5;">
+									{{item.conteudo | raw}}
+									</p>
+								</div>
 							</div>
 						</div>
 
 						<!--Mostrar e adicionar comentario-->
-						<div class="timeline-body" id="comentario{{item.id}}">
-							<br>
-							<div class="" id="coment{{item.id}}">
-
-							</div>
-
-							<div class="row">
-							<br>
+						<div class="timeline-body" id="comentario{{item.id}}"><br>
+							<div class="" id="coment{{item.id}}"></div>
+							<div class="row"><br>
 								<div class="col-md-1">
 									<img src="{{base_url()}}/assets/rede/img/user/{{item.foto}}" alt="" width="50" height="50" style="border-radius: 30px;">
 								</div>
@@ -93,12 +88,11 @@
 								 <div class="col-md-6">
 								  	<textarea type="text" id="comentariotext{{item.id}}" class="form-control" > </textarea>
 								 </div><br>
-
 							</div>
 
-							 <div class="col-md-6 col-md-offset-6" > 
-								  	<button class="btn btn-warning" onclick="salvarComentario({{item.id}},{{item.id_login}})">   Okay  </button>
-								 </div>
+							<div class="col-md-6 col-md-offset-6" > 
+								<button class="btn btn-warning" onclick="salvarComentario({{item.id}},{{item.id_login}})">   Okay  </button>
+							</div>
 						</div>
 						
 					</div>

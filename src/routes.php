@@ -17,6 +17,7 @@ new DB();
 		$this->get("/comentarios","controllers\ComentarioControllers:add")->setName("add");
 		$this->get("/mostarComentarios","controllers\ComentarioControllers:verificarComentarios")->setName("verificarComentarios");
 		$this->get("/busca","controllers\Busca:pesquisarBusca")->setName("pesquisarBusca");
+		$this->get("/buscaMinhasEscritas","controllers\Busca:pesquisarMinhasEscritas")->setName("pesquisarMinhasEscritas");
 		
 		$this->get("/favoritar","controllers\FavoritosControllers:addFavorito")->setName("addFavorito");
 		$this->get("/desfavoritar","controllers\FavoritosControllers:removerEstrela")->setName("removerEstrela");

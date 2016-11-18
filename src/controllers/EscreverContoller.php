@@ -21,10 +21,24 @@ class EscreverContoller
 		$login=$_SESSION["dados_login"]["id"];
 
 		$busca=DB::findAll("escrito","id_user=? ORDER BY id DESC",array($_SESSION["dados_login"]["id"]));
+		$buscaTodos=DB::findAll("escrito","privacidade='publico' or privacidade='anonimo' or id_user=? ORDER BY id DESC",array($_SESSION["dados_login"]["id"]));
 
 		$buscaCurtida=DB::findAll("curtidas","id_usuario=?",array($_SESSION["dados_login"]["id"]));
 		$buscaFavoritos=DB::findAll("favoritos","id_usuario=?",array($_SESSION["dados_login"]["id"]));
-	
+		
+		foreach ($buscaTodos as $value) {
+			foreach ($buscaFavoritos as $valor) {
+				if($value->id==$valor->id_publicacao){
+					array_push($favoritoArray,
+						array(
+							"id"=>				$valor->id,
+							"id_publicacao"=>	$valor->id_publicacao,
+							"id_user"=>			$valor->id_user,							
+							"titulo"=> 			$value->titulo
+					));
+				}	
+			}
+		}
 		
 		foreach ($busca as $value) {
 			$curti =  0;
@@ -35,19 +49,13 @@ class EscreverContoller
 					$curti = 1;
 				}	
 			}
-
+			
 			foreach ($buscaFavoritos as $valor) {
 				if($value->id==$valor->id_publicacao){
 					$favorito = 1;
-					array_push($favoritoArray,
-						array(
-							"id"=>				$valor->id,
-							"id_publicacao"=>	$valor->id_publicacao,
-							"id_user"=>			$valor->id_user,							
-							"titulo"=> 			$value->titulo
-					));
 				}	
 			}
+
 			array_push($timeLineArray,
 				array(
 					"id"=>				$value->id,

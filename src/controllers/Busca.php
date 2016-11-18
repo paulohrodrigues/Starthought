@@ -31,5 +31,27 @@ class Busca
 
 		return json_encode($arrayUser);
 	}
+	
+	public function pesquisarMinhasEscritas($request, $response, $args){
+		
+		$pesquisarP=$_GET["pesquisa"];
+		$login=$_SESSION["dados_login"]["id"];
+		$arrayMinhasEscritas=array();
+
+		$buscaEscritos=DB::findAll('escrito','titulo LIKE ? ',array($pesquisarP."%"));
+
+		foreach ($buscaEscritos as $value) {
+			if($value->id_user==$login){
+				array_push($arrayMinhasEscritas,
+								array(
+									"id"=> $value->id,
+									"titulo"=> $value->titulo
+									)
+								);
+			}
+		}
+
+		return json_encode($arrayMinhasEscritas);
+	}
 
 }

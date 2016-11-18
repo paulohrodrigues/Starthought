@@ -19,11 +19,11 @@ class ComentarioControllers
 		$codigoUser=$_GET["codUser"];
 		$arrayComentarios=array();
 
-		$buscaComentarios=DB::findAll("comentarios","id_escrito=?",array($codigoPublicacao));
+		$buscaComentarios=DB::findAll("comentarios","id_escrito=? ",array($codigoPublicacao));
 		$buscaUsuarios=DB::findAll("usuarios");
 
+		foreach ($buscaComentarios as $valor) {
 			foreach ($buscaUsuarios as $value) {
-				foreach ($buscaComentarios as $valor) {
 					if($valor->id_user==$value->id){
 						if($codigoPublicacao==$valor->id_escrito){  	
 							array_push($arrayComentarios,
